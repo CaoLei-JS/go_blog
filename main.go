@@ -2,19 +2,19 @@ package main
 
 import (
 	"fmt"
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/gorilla/mux"
 	"html/template"
 	"net/http"
 	"net/url"
 	"strings"
 	"unicode/utf8"
-
-	"github.com/gorilla/mux"
 )
 
 var router = mux.NewRouter()
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "<h1>Hello, 欢迎来到 goblog！</h1>")
+	fmt.Fprint(w, "<h1>Hello, 欢迎来到！</h1>")
 }
 
 func aboutHandler(w http.ResponseWriter, r *http.Request) {
