@@ -6,6 +6,7 @@ import (
 	"goblog/pkg/logger"
 	"goblog/pkg/route"
 	"goblog/pkg/types"
+	"html/template"
 	"net/http"
 )
 
