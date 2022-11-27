@@ -2,9 +2,9 @@ package model
 
 import (
 	"goblog/pkg/logger"
+	gormlogger "gorm.io/gorm/logger"
 
 	"gorm.io/gorm"
-
 	// GORM 的 MySQL 数据库驱动导入
 	"gorm.io/driver/mysql"
 )
@@ -22,7 +22,9 @@ func ConnectDB() *gorm.DB {
 	})
 
 	// 准备数据库连接池
-	DB, err = gorm.Open(config, &gorm.Config{})
+	DB, err = gorm.Open(config, &gorm.Config{
+		Logger: gormlogger.Default.LogMode(gormlogger.Warn),
+	})
 
 	logger.LogError(err)
 
